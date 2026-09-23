@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev-itsolution — Réparation & Vente de Téléphonie et Informatique | Algérie</title>
+<meta name="description" content="Dev-itsolution - Réparation smartphones, tablettes, ordinateurs et vente de matériel neuf & reconditionné à Bouinan, Blida, Algérie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --primary-light:#3b82f6;
+    --accent:#06b6d4;
+    --dark:#0f172a;
+    --dark-light:#1e293b;
+    --text:#334155;
+    --text-light:#64748b;
+    --text-muted:#94a3b8;
+    --bg:#ffffff;
+    --bg-alt:#f8fafc;
+    --bg-dark:#0f172a;
+    --border:#e2e8f0;
+    --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);
+    --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 8px 10px -6px rgba(0,0,0,0.1);
+    --shadow-xl:0 25px 50px -12px rgba(0,0,0,0.25);
+    --shadow-primary:0 10px 40px -10px rgba(37,99,235,0.4);
+    --radius:16px;
+    --radius-lg:24px;
+    --transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.2;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1280px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:999px;font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;transition:var(--transition);border:none;cursor:pointer;}
+  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:var(--shadow-primary);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 50px -10px rgba(37,99,235,0.5);}
+  .btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary);}
+  .btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
+  .btn-white{background:#fff;color:var(--primary);box-shadow:var(--shadow);}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+  .btn-dark{background:var(--dark);color:#fff;}
+  .btn-dark:hover{background:var(--dark-light);transform:translateY(-2px);}
+  .section-padding{padding:100px 0;}
+  .text-center{text-align:center;}
+  .flex{display:flex;}
+  .items-center{align-items:center;}
+  .justify-between{justify-content:space-between;}
+  .gap-4{gap:16px;}
+  .grid{display:grid;}
+
+  /* Header */
+  .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:var(--transition);}
+  .header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+  .header-inner{height:80px;display:flex;align-items:center;justify-content:space-between;}
+  .header-logo img{height:88px;width:auto;}
+  .header-nav{display:flex;align-items:center;gap:40px;}
+  .header-nav a{font-size:15px;font-weight:500;color:var(--text);transition:var(--transition);position:relative;}
+  .header-nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);border-radius:2px;transition:var(--transition);}
+  .header-nav a:hover{color:var(--primary);}
+  .header-nav a:hover::after{width:100%;}
+  .header-cta{display:flex;align-items:center;gap:16px;}
+  .header-phone{font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:var(--primary);display:flex;align-items:center;gap:6px;padding:10px 18px;background:rgba(37,99,235,0.08);border-radius:999px;transition:var(--transition);}
+  .header-phone:hover{background:var(--primary);color:#fff;}
+  .mobile-menu-btn{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer;}
+  .mobile-menu-btn span{width:24px;height:2.5px;background:var(--dark);border-radius:2px;transition:var(--transition);}
+
+  /* Hero */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:linear-gradient(135deg,#f0f4ff 0%,#e0e7ff 30%,#dbeafe 60%,#f0f9ff 100%);position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,0.08) 0%,transparent 70%);border-radius:50%;}
+  .hero::after{content:"";position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(6,182,212,0.06) 0%,transparent 70%);border-radius:50%;}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.1);color:var(--primary);padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:24px;border:1px solid rgba(37,99,235,0.15);}
+  .hero-badge span{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+  .hero h1{font-size:clamp(42px,5vw,64px);color:var(--dark);margin-bottom:24px;}
+  .hero h1 span{color:var(--primary);}
+  .hero-desc{font-size:18px;color:var(--text-light);max-width:520px;margin-bottom:36px;line-height:1.7;}
+  .hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px;}
+  .hero-stats{display:flex;gap:32px;}
+  .hero-stat{text-align:center;}
+  .hero-stat-number{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;color:var(--primary);line-height:1;}
+  .hero-stat-label{font-size:13px;color:var(--text-muted);margin-top:6px;}
+  .hero-image{position:relative;}
+  .hero-image-main{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-xl);position:relative;}
+  .hero-image-main img{width:100%;height:500px;object-fit:cover;}
+  .hero-image-float{position:absolute;bottom:-30px;left:-30px;background:#fff;padding:20px 24px;border-radius:var(--radius);box-shadow:var(--shadow-xl);border:1px solid var(--border);}
+  .hero-image-float-price{font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:var(--primary);}
+  .hero-image-float-label{font-size:12px;color:var(--text-muted);}
+  .hero-image-tag{position:absolute;top:20px;right:20px;background:rgba(15,23,42,0.9);color:#fff;padding:10px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;backdrop-filter:blur(10px);}
+
+  /* Trust Bar */
+  .trust-bar{background:var(--dark);color:#fff;padding:40px 0;}
+  .trust-bar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .trust-bar-item{display:flex;align-items:center;gap:16px;padding:16px;}
+  .trust-bar-icon{width:52px;height:52px;background:rgba(37,99,235,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+  .trust-bar-item h4{font-family:'Poppins',sans-serif;font-size:24px;font-weight:800;color:var(--primary-light);}
+  .trust-bar-item p{font-size:13px;color:rgba(255,255,255,0.6);}
+
+  /* Section Title */
+  .section-title{margin-bottom:60px;}
+  .section-title-label{display:inline-block;background:rgba(37,99,235,0.1);color:var(--primary);padding:8px 20px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:16px;border:1px solid rgba(37,99,235,0.15);}
+  .section-title h2{font-size:clamp(32px,4vw,44px);color:var(--dark);margin-bottom:16px;}
+  .section-title p{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto;}
+
+  /* Services */
+  .services{background:var(--bg-alt);}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .service-card{background:#fff;border-radius:var(--radius);padding:36px 32px;border:1px solid var(--border);transition:var(--transition);position:relative;overflow:hidden;}
+  .service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:var(--transition);}
+  .service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent;}
+  .service-card:hover::before{opacity:1;}
+  .service-icon{width:64px;height:64px;background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(6,182,212,0.1));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px;transition:var(--transition);}
+  .service-card:hover .service-icon{transform:scale(1.1) rotate(-5deg);}
+  .service-card h3{font-size:20px;color:var(--dark);margin-bottom:12px;}
+  .service-card p{font-size:15px;color:var(--text-light);line-height:1.7;margin-bottom:20px;}
+  .service-price{font-family:'Poppins',sans-serif;font-size:14px;color:var(--text-muted);border-top:1px dashed var(--border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;}
+  .service-price strong{color:var(--primary);font-size:18px;}
+
+  /* Gallery */
+  .gallery-section{background:var(--dark);position:relative;}
+  .gallery-section .section-title-label{background:rgba(37,99,235,0.2);color:var(--primary-light);border-color:rgba(37,99,235,0.3);}
+  .gallery-section .section-title h2{color:#fff;}
+  .gallery-section .section-title p{color:rgba(255,255,255,0.5);}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:280px;gap:20px;}
+  .gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:var(--transition);}
+  .gallery-item.tall{grid-row:span 2;}
+  .gallery-item.wide{grid-column:span 2;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+  .gallery-item:hover{transform:scale(1.02);z-index:2;}
+  .gallery-item:hover img{transform:scale(1.1);}
+  .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,0.9) 0%,transparent 60%);opacity:0;transition:var(--transition);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;}
+  .gallery-item:hover .gallery-overlay{opacity:1;}
+  .gallery-overlay h4{color:#fff;font-size:18px;font-weight:600;margin-bottom:6px;}
+  .gallery-overlay p{color:rgba(255,255,255,0.6);font-size:13px;}
+
+  /* Process */
+  .process-section{background:#fff;}
+  .process-wrap{background:var(--bg-alt);border-radius:var(--radius-lg);padding:64px;}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
+  .process-step{text-align:center;position:relative;}
+  .process-step:not(:last-child)::after{content:"";position:absolute;top:30px;right:-20px;width:40px;height:2px;background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 14px);}
+  .process-number{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;margin:0 auto 20px;box-shadow:0 10px 30px rgba(37,99,235,0.3);position:relative;}
+  .process-number::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(37,99,235,0.15);animation:ripple 2s infinite;}
+  .process-step h3{font-size:18px;color:var(--dark);margin-bottom:10px;}
+  .process-step p{font-size:14px;color:var(--text-light);line-height:1.7;}
+
+  /* Pricing */
+  .pricing{background:var(--bg-alt);}
+  .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .pricing-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:var(--transition);}
+  .pricing-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);}
+  .pricing-header{background:linear-gradient(135deg,var(--dark),var(--dark-light));color:#fff;padding:24px 32px;display:flex;justify-content:space-between;align-items:center;}
+  .pricing-header h3{font-size:18px;display:flex;align-items:center;gap:10px;}
+  .pricing-header span{font-family:'Poppins',sans-serif;font-size:12px;color:rgba(255,255,255,0.5);}
+  .pricing-row{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--border);transition:var(--transition);}
+  .pricing-row:hover{background:rgba(37,99,235,0.02);}
+  .pricing-row:last-child{border-bottom:none;}
+  .pricing-row span:first-child{font-weight:500;color:var(--dark);}
+  .pricing-row span:last-child{font-family:'Poppins',sans-serif;color:var(--primary);font-weight:600;}
+  .pricing-row .free{color:#16a34a;font-weight:700;}
+
+  /* Testimonials */
+  .testimonials{background:#fff;}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .testimonial-card{background:var(--bg-alt);border-radius:var(--radius);padding:36px 32px;transition:var(--transition);border:1px solid var(--border);}
+  .testimonial-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+  .testimonial-stars{color:#f59e0b;font-size:16px;margin-bottom:20px;letter-spacing:2px;}
+  .testimonial-text{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:28px;font-style:italic;}
+  .testimonial-author{display:flex;align-items:center;gap:16px;}
+  .testimonial-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;}
+  .testimonial-author-info h4{font-size:15px;color:var(--dark);}
+  .testimonial-author-info p{font-size:13px;color:var(--text-muted);}
+
+  /* Contact */
+  .contact-section{background:var(--dark);position:relative;overflow:hidden;}
+  .contact-section::before{content:"";position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,0.1) 0%,transparent 70%);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .contact-info h2{color:#fff;font-size:clamp(28px,3vw,38px);margin-bottom:16px;}
+  .contact-info > p{color:rgba(255,255,255,0.5);font-size:17px;line-height:1.7;margin-bottom:40px;}
+  .contact-details{display:flex;flex-direction:column;gap:24px;}
+  .contact-detail{display:flex;gap:16px;align-items:flex-start;}
+  .contact-detail-icon{width:48px;height:48px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .contact-detail h4{color:#fff;font-size:15px;margin-bottom:4px;}
+  .contact-detail p,.contact-detail a{color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;}
+  .contact-detail a:hover{color:var(--primary-light);}
+  .contact-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:40px;}
+  .form-group{margin-bottom:20px;}
+  .form-group label{display:block;color:rgba(255,255,255,0.5);font-size:12px;font-weight:500;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em;}
+  .form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 16px;color:#fff;font-size:15px;transition:var(--transition);}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--primary);background:rgba(37,99,235,0.08);box-shadow:0 0 0 4px rgba(37,99,235,0.1);}
+  .form-group textarea{resize:vertical;min-height:100px;}
+  .form-group select option{background:var(--dark);}
+  .contact-form .btn{width:100%;justify-content:center;padding:16px;}
+
+  /* Footer */
+  .footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 0 32px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px;}
+  .footer-brand img{height:64px;margin-bottom:20px;}
+  .footer-brand p{font-size:15px;color:var(--text-light);line-height:1.7;max-width:320px;}
+  .footer-domains{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .footer-domain-tag{font-family:'Poppins',sans-serif;font-size:11px;color:var(--text-muted);background:#fff;border:1px solid var(--border);padding:5px 10px;border-radius:6px;}
+  .footer-col h4{font-size:13px;color:var(--text-muted);font-weight:600;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.05em;}
+  .footer-col a{display:block;color:var(--text);font-size:15px;margin-bottom:14px;transition:var(--transition);}
+  .footer-col a:hover{color:var(--primary);transform:translateX(4px);}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border);}
+  .footer-bottom p{font-size:14px;color:var(--text-muted);}
+  .footer-socials{display:flex;gap:12px;}
+  .footer-socials a{width:40px;height:40px;background:#fff;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;transition:var(--transition);}
+  .footer-socials a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-3px);}
+
+  /* Scroll Top */
+  .scroll-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;opacity:0;visibility:hidden;transition:var(--transition);box-shadow:var(--shadow-primary);z-index:999;border:none;}
+  .scroll-top.visible{opacity:1;visibility:visible;}
+  .scroll-top:hover{transform:translateY(-4px) scale(1.1);}
+
+  /* Animations */
+  .fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+  .delay-1{transition-delay:0.1s;}
+  .delay-2{transition-delay:0.2s;}
+  .delay-3{transition-delay:0.3s;}
+
+  /* Responsive */
+  @media(max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-image{order:-1;max-width:600px;margin:0 auto;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
+    .process-step:nth-child(2)::after{display:none;}
+    .pricing-grid{grid-template-columns:1fr;}
+    .testimonials-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .trust-bar-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:768px){
+    .header-nav{display:none;position:absolute;top:80px;left:0;right:0;background:#fff;flex-direction:column;padding:24px;box-shadow:var(--shadow-lg);gap:16px;}
+    .header-nav.active{display:flex;}
+    .mobile-menu-btn{display:flex;}
+    .services-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;grid-auto-rows:240px;}
+    .gallery-item.tall,.gallery-item.wide{grid-row:span 1;grid-column:span 1;}
+    .process-grid{grid-template-columns:1fr;}
+    .process-step::after{display:none !important;}
+    .process-wrap{padding:40px 24px;}
+    .testimonials-grid{grid-template-columns:1fr;}
+    .contact-form{padding:28px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .trust-bar-grid{grid-template-columns:1fr;}
+    .hero-image-float{display:none;}
+    .hero{padding:100px 0 60px;}
+    .section-padding{padding:70px 0;}
+  }
+  @media(max-width:480px){
+    .hero h1{font-size:32px;}
+    .hero-buttons{flex-direction:column;}
+    .btn{width:100%;justify-content:center;}
+    .hero-stats{flex-direction:column;gap:20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="https://devitsolution.dz" class="header-logo">
+      <img src="images/logo.png" alt="Dev-itsolution">
+    </a>
+    <nav class="header-nav" id="headerNav">
+      <a href="#services">Services</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#process">Processus</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+213697058500" class="header-phone">📞 +213 697 058 500</a>
+      <a href="#contact" class="btn btn-primary" style="padding:12px 24px;font-size:14px;">Diagnostic</a>
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-badge"><span></span> Reparateur Agréé · Garantie 6 mois</div>
+      <h1 class="fade-up">Votre appareil en panne ? <span>On le répare.</span></h1>
+      <p class="hero-desc fade-up delay-1">Dev-itsolution répare vos smartphones, tablettes et ordinateurs, et vend du matériel neuf et reconditionné testé en atelier. Devis clair avant toute intervention.</p>
+      <div class="hero-buttons fade-up delay-1">
+        <a href="#contact" class="btn btn-primary">Demander un diagnostic gratuit</a>
+        <a href="#services" class="btn btn-outline">Découvrir nos services</a>
+      </div>
+      <div class="hero-stats fade-up delay-2">
+        <div class="hero-stat">
+          <div class="hero-stat-number">9+</div>
+          <div class="hero-stat-label">Ans d'expérience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">2K+</div>
+          <div class="hero-stat-label">Appareils réparés</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">10m</div>
+          <div class="hero-stat-label">Réparations express</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image fade-up delay-1">
+      <div class="hero-image-main">
+        <img src="images/devit1.jpg" alt="Atelier de réparation Dev-itsolution">
+        <div class="hero-image-tag">🔧 Diagnostic en cours</div>
+      </div>
+      <div class="hero-image-float">
+        <a href="https://devitsolution.dz" class="header-logo">
+      <img src="images/logo.png" alt="Dev-itsolution">
+    </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="container trust-bar-grid">
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">🛡️</div>
+      <div>
+        <h4>6 Mois</h4>
+        <p>Garantie sur toutes les réparations</p>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">💯</div>
+      <div>
+        <h4>100%</h4>
+        <p>Devis gratuit sans engagement</p>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">⚡</div>
+      <div>
+        <h4>J+0</h4>
+        <p>Réparations le jour même</p>
+      </div>
+    </div>
+    <div class="trust-bar-item">
+      <div class="trust-bar-icon">⭐</div>
+      <div>
+        <h4>4.8/5</h4>
+        <p>Note moyenne sur 640 avis</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section-padding services" id="services">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title-label">Ce que l'on fait</div>
+      <h2>Réparation, vente et remise à neuf</h2>
+      <p>Un seul atelier pour tous vos appareils, du smartphone fissuré au PC qui rame.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">📱</div>
+        <h3>Réparation Smartphones</h3>
+        <p>Écran, batterie, connecteur de charge, appareil photo, boutons — toutes marques : iPhone, Samsung, Huawei, Xiaomi...</p>
+        <div class="service-price">À partir de <strong>2 900 DA</strong></div>
+      </div>
+      <div class="service-card fade-up delay-1">
+        <div class="service-icon">💻</div>
+        <h3>Réparation Ordinateurs</h3>
+        <p>Clavier, disque dur/SSD, carte mère, surchauffe, virus, réinstallation système Windows & Mac.</p>
+        <div class="service-price">À partir de <strong>1 400 DA</strong></div>
+      </div>
+      <div class="service-card fade-up delay-2">
+        <div class="service-icon">🔋</div>
+        <h3>Changement de Batterie</h3>
+        <p>Diagnostic d'autonomie et remplacement en atelier avec pièces certifiées et testées.</p>
+        <div class="service-price">À partir de <strong>2 500 DA</strong></div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🛒</div>
+        <h3>Vente Neuf & Reconditionné</h3>
+        <p>Smartphones et PC reconditionnés grade A, testés 20 points, garantis 12 mois.</p>
+        <div class="service-price">Dès <strong>9 900 DA</strong></div>
+      </div>
+      <div class="service-card fade-up delay-1">
+        <div class="service-icon">🗂️</div>
+        <h3>Récupération de Données</h3>
+        <p>Appareil qui ne démarre plus ? On tente la récupération de vos photos et fichiers avant tout.</p>
+        <div class="service-price">Diagnostic <strong style="color:#16a34a;">500 DA</strong></div>
+      </div>
+      <div class="service-card fade-up delay-2">
+        <div class="service-icon">🔓</div>
+        <h3>Déblocage & Accessoires</h3>
+        <p>Déblocage opérateur, coques, vitres trempées, chargeurs et câbles certifiés MFi.</p>
+        <div class="service-price">Dès <strong>900 DA</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="section-padding gallery-section" id="galerie">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title-label">Notre atelier</div>
+      <h2>L'expertise au quotidien</h2>
+      <p>Des outils professionnels et une équipe qualifiée pour chaque réparation.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="images/technician.jpg" alt="Technicien réparant une carte mère" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>Réparation Carte Mère</h4>
+          <p>Micro-soudure et diagnostic avancé</p>
+        </div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="images/devices.jpg" alt="Smartphones et montre connectée" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>Matériel Neuf & Reconditionné</h4>
+          <p>iPhone, iPad, Apple Watch et plus</p>
+        </div>
+      </div>
+      <div class="gallery-item tall">
+        <img src="images/gtx.jpg" alt="Technicien réparant une carte mère" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>Réparation Carte Mère</h4>
+          <p>Micro-soudure et diagnostic avancé</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/macbook-repair.jpg" alt="MacBook Pro ouvert" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>Réparation MacBook</h4>
+          <p>SSD, RAM, nettoyage interne</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/devit1.jpg" alt="Enseigne Phone Repair" loading="lazy">
+        <div class="gallery-overlay">
+          <h4>Dev-itsolution</h4>
+          <p>Votre atelier de confiance à Bouinan</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section-padding process-section" id="process">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title-label">Le déroulé</div>
+      <h2>De la panne à l'appareil réparé</h2>
+      <p>En 4 étapes simples, votre appareil est comme neuf.</p>
+    </div>
+    <div class="process-wrap">
+      <div class="process-grid">
+        <div class="process-step fade-up">
+          <div class="process-number">01</div>
+          <h3>Diagnostic</h3>
+          <p>On identifie précisément la panne, gratuitement, pendant que vous patientez.</p>
+        </div>
+        <div class="process-step fade-up delay-1">
+          <div class="process-number">02</div>
+          <h3>Devis</h3>
+          <p>Prix fixe communiqué avant toute intervention — aucune surprise en caisse.</p>
+        </div>
+        <div class="process-step fade-up delay-2">
+          <div class="process-number">03</div>
+          <h3>Réparation</h3>
+          <p>Intervention en atelier avec pièces d'origine ou certifiées équivalentes.</p>
+        </div>
+        <div class="process-step fade-up delay-3">
+          <div class="process-number">04</div>
+          <h3>Garantie</h3>
+          <p>garantie pièces Afficheur et main d'œuvre sur réparation effectuée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section-padding pricing" id="tarifs">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title-label">Tarifs indicatifs</div>
+      <h2>Des prix fixes, annoncés avant réparation</h2>
+      <p>Tarifs de base pour les pannes les plus courantes — devis exact après diagnostic.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-header">
+          <h3>📱 Smartphones</h3>
+          <span>TARIFS-SP</span>
+        </div>
+        <div class="pricing-row"><span>Écran cassé</span><span>3 900 — 12 900 DA</span></div>
+        <div class="pricing-row"><span>Batterie</span><span>1 500 — 5 900 DA</span></div>
+        <div class="pricing-row"><span>Connecteur de charge</span><span>800 — 4 500 DA</span></div>
+        <div class="pricing-row"><span>Vitre arrière</span><span> 500 — 1 900 DA</span></div>
+        <div class="pricing-row"><span>Appareil photo</span><span> 900 — 7 900 DA</span></div>
+        <div class="pricing-row"><span>Micro-soudure</span><span> 900 — 15 000 DA</span></div>
+      </div>
+      <div class="pricing-card fade-up delay-1">
+        <div class="pricing-header">
+          <h3>💻 Ordinateurs</h3>
+          <span>TARIFS-PC</span>
+        </div>
+        <div class="pricing-row"><span>Diagnostic complet</span><span class="free">500</span></div>
+        <div class="pricing-row"><span>Remplacement SSD</span><span>5 900 — 18 900 DA</span></div>
+        <div class="pricing-row"><span>Nettoyage / surchauffe</span><span>1500 DA</span></div>
+        <div class="pricing-row"><span>Suppression virus</span><span>1 700 DA</span></div>
+        <div class="pricing-row"><span>Réinstallation système</span><span>1 400 DA</span></div>
+        <div class="pricing-row"><span>Remplacement clavier</span><span>2 500 — 12 900 DA</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section-padding testimonials" id="avis">
+  <div class="container">
+    <div class="section-title text-center">
+      <div class="section-title-label">Avis clients</div>
+      <h2>Ce que disent nos clients à Bouinan</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Écran d'iPhone changé en moins d'une heure, prix annoncé au téléphone respecté au dinar près. Service impeccable !"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div class="testimonial-author-info">
+            <h4>Mohamed M.</h4>
+            <p>Cliente smartphone — Bouinan</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Mon PC portable ne démarrait plus, j'ai récupéré toutes mes photos et le disque a été remplacé le jour même. Merci !"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">K</div>
+          <div class="testimonial-author-info">
+            <h4>Karim B.</h4>
+            <p>Client ordinateur — Blida</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"J'ai acheté un smartphone reconditionné, impeccable après huit mois d'usage, et la garantie a été honorée sans souci."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div class="testimonial-author-info">
+            <h4>Sarah T.</h4>
+            <p>Cliente reconditionné — Bouinan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section-padding contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-title-label" style="background:rgba(37,99,235,0.2);color:var(--primary-light);border-color:rgba(37,99,235,0.3);">Sur place ou à distance</div>
+        <h2>Un diagnostic gratuit, sans rendez-vous</h2>
+        <p>Passez à l'atelier ou laissez-nous vos coordonnées, on vous rappelle sous 30 minutes en journée ouvrable.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+            
+              <h4>Atelier Dev-itsolution</h4>
+              <p>4500 Logs, Ilot A5, Bouinan, Blida, Algérie</p>
+              <a href="https://maps.app.goo.gl/5QLfesprkZ13Mahk6">Google Map</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕘</div>
+            <div>
+              <h4>Horaires d'ouverture</h4>
+              <p>Dim–Jeu, 9h00 – 22h00 | Ven–Sam, 9h00 – 21h00</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div>
+              <h4>Téléphone / WhatsApp</h4>
+              <a href="tel:+213697058500">+213 697 058 500</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🌐</div>
+            <div>
+              <h4>Nos sites web</h4>
+              <a href="https://devitsolution.dz">devitsolution.dz</a> · <a href="https://devitsolution.com">devitsolution.com</a>· <a href="https://devitsolution.online">devitsolution.online</a>· <a href="https://devitsolution.store">devitsolution.store</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input type="text" id="formName" placeholder="Votre nom et prénom" required>
+        </div>
+        <div class="form-group">
+          <label>Téléphone</label>
+          <input type="tel" id="formPhone" placeholder="05 XX XX XX XX" required>
+        </div>
+        <div class="form-group">
+          <label>Type d'appareil</label>
+          <select id="formDevice">
+            <option value="">Sélectionnez...</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="tablette">Tablette</option>
+            <option value="ordinateur">Ordinateur portable</option>
+            <option value="pc-fixe">PC de bureau</option>
+            <option value="autre">Serveur </option>
+            <option value="smartphone">Alimentation</option>
+            <option value="tablette">Disk</option>
+            <option value="ordinateur">Ram</option>
+            <option value="pc-fixe">Montre</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Décrivez la panne</label>
+          <textarea id="formIssue" placeholder="Ex : écran cassé sur Samsung S22..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">📨 Envoyer ma demande</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Dev-itsolution">
+        <p>Atelier de réparation et Magasin de vente de téléphonie et informatique, neuf et reconditionné. Votre expert tech à Bouinan, Blida.</p>
+        <div class="footer-domains">
+          <span class="footer-domain-tag">devitsolution.dz</span>
+          <span class="footer-domain-tag">devitsolution.com</span>
+          <span class="footer-domain-tag">devitsolution.store</span>
+          <span class="footer-domain-tag">devitsolution.online</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Smartphones</a>
+        <a href="#services">Ordinateurs</a>
+        <a href="#services">Reconditionné</a>
+        <a href="#services">Accessoires</a>
+      </div>
+      <div class="footer-col">
+        <h4>Atelier</h4>
+        <a href="#avis">Avis clients</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#process">Processus</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+213697058500">+213 697 058 500</a>
+        <a href="https://wa.me/213697058500">WhatsApp</a>
+        <a href="mailto:contact@devitsolution.dz">contact@devitsolution.dz</a>
+        <p style="font-size:14px;color:var(--text-light);margin-top:12px;">4500 Logs, Ilot A5<br>Bouinan, Blida, Algérie</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev-itsolution. Tous droits réservés.</p>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61583025718210" title="Facebook">📘</a>
+        <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fdev_itsolution%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExbmVFODd5WXl2bWFsSUJwQ3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR5gaZcHEz9WuSa44uKN5eyqsSh_FYSdPgZclIB3mbJnAd5_FvZKdJ0WFXsz8A_aem_rNhqyjamBPhkUAZkoPXhPA&h=AUB_JsdeGGEtd50R7UX4hp73jBAjUGv99d-SBT8IpeD8X3eWsK2E956Dd-7k5HeCuEFSUZxKV9rRRWc9rvsW5yP1rX-tG2QytpGTxkVotmPQJ1h7Hw6yR7rwaZLIAaSSpAM9" title="Instagram">📸</a>
+        <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftiktok.com%2F%40devit3000%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExbmVFODd5WXl2bWFsSUJwQ3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR66nLQbYekv7Cc__FaF-ymIW6bekFEUb3N4632rUVRguP_OZ6w1kZlpSshu4w_aem_EweQgBFDK14YEMO0eOZ5Aw&h=AUCRC0Wqp3YeWyvIusI7T9HQTuY5AVWKC53e3luDJBssBvt2tvdPNjItGWDamMF2E92X7uxB_kRySscrBO9Vjs3Wpo7pE8MHtQJymplrEhARbuYRZN17sCtmm6Ea61lmL5oC" title="TikTok">🎵</a>
+        <a href="https://wa.me/213697058500" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Top -->
+<button class="scroll-top" id="scrollTop">↑</button>
+
+<script>
+  // Mobile menu
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const headerNav = document.getElementById('headerNav');
+  mobileMenuBtn.addEventListener('click', () => {
+    headerNav.classList.toggle('active');
+    mobileMenuBtn.classList.toggle('active');
+  });
+  document.querySelectorAll('.header-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      headerNav.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+    });
+  });
+
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // Scroll top
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  scrollTop.addEventListener('click', () => {
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // Fade up animation
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, {threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  fadeElements.forEach(el => observer.observe(el));
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('formName').value;
+    const phone = document.getElementById('formPhone').value;
+    const device = document.getElementById('formDevice').value;
+    const issue = document.getElementById('formIssue').value;
+    const msg = `Nouvelle demande Dev-itsolution%0A%0A👤 Nom: ${encodeURIComponent(name)}%0A📞 Téléphone: ${encodeURIComponent(phone)}%0A📱 Appareil: ${encodeURIComponent(device||'Non spécifié')}%0A🔧 Panne: ${encodeURIComponent(issue)}`;
+    window.open(`https://wa.me/213697058500?text=${msg}`, '_blank');
+    document.getElementById('contactForm').reset();
+    alert('Merci ! Votre demande a été envoyée. Nous vous contacterons sous peu.');
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = target.getBoundingClientRect().top + window.pageYOffset - 80;
+          window.scrollTo({top:offset,behavior:'smooth'});
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
